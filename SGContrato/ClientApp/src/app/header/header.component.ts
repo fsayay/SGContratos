@@ -15,4 +15,5 @@ export class HeaderComponent {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
+
 }

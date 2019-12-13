@@ -25,7 +25,13 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/sidebar.js",
+              "src/assets/js/pagination.js",
+              "src/assets/js/js.js"
+            ]
           },
           "configurations": {
             "production": {
