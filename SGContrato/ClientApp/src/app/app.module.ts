@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ContractsComponent } from './views/contracts/contracts.component';
+import { SideNavComponent } from './views/sidenav/sidenav.component';
+import { DatosGeneralesComponent } from './views/datosGenerales/datosGenerales.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ContractsComponent } from './views/contracts/contracts.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    ContractsComponent
+    ContractsComponent,
+    SideNavComponent,
+    DatosGeneralesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,6 +31,7 @@ import { ContractsComponent } from './views/contracts/contracts.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'contracts', component: ContractsComponent },
+      { path: 'datosGenerales', component: DatosGeneralesComponent },
     ])
   ],
   providers: [],
