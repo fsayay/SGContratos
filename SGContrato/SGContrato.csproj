@@ -13,7 +13,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.Security.CAS" Version="2.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="2.19.30" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.31" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,15 +52,31 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191224213917_InitialCreate-force.cs" />
+    <Compile Remove="Migrations\20191224213917_InitialCreate-force.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\app\fetch-data\sidenav.css" />
     <None Remove="ClientApp\src\app\file.ts" />
     <None Remove="ClientApp\src\app\footer\footer.component.ts" />
-    <None Remove="ClientApp\src\app\NewFolder\file.ts" />
+    <None Remove="ClientApp\src\app\model.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\footer\footer.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\NewFolder\file.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\formularios\formEntregable\" />
+    <Folder Include="ClientApp\src\app\formularios\formFormaPago\" />
+    <Folder Include="ClientApp\src\app\formularios\formActa\" />
+    <Folder Include="ClientApp\src\app\formularios\formContrato\" />
+    <Folder Include="ClientApp\src\app\formularios\formPago\" />
+    <Folder Include="ClientApp\src\app\formularios\formInforme\" />
+    <Folder Include="ClientApp\src\app\formularios\formMulta\" />
+    <Folder Include="ClientApp\src\app\formularios\formSolicitud\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

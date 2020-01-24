@@ -1,10 +1,16 @@
+using AspNetCore.Security.CAS;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SGContrato.Models;
 
 namespace SGContrato
 {
@@ -26,6 +32,30 @@ namespace SGContrato
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            // Configuracion de CAS para autenticacion
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new PathString("/login");
+                    options.AccessDeniedPath = new PathString("/access-denied");
+                })
+                .AddCAS(options =>
+                {
+                    options.CasServerUrlBase = Configuration["CasBaseUrl"];   // Set in `appsettings.json` file.
+                    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.SaveTokens = true;
+                });
+
+            //Conection to OracleDB
+            var connection = @"User Id=SYSTEM;Password=admin;Data Source=localhost:1521/xe";
+            //var connection = @"User Id=sgcontratos;Password=sgcontratos;Data Source=oradb-dev-nodo01:1521/xe";
+            services.AddDbContext<MyDBContext>(option => option.UseOracle(connection));
+
+            services.AddControllers().AddNewtonsoftJson();
+
+            //services.AddControllers().AddJsonOptions(option => options.JsonSerializerOptions.Converters.Add(new IntToStringConverter()));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +87,9 @@ namespace SGContrato
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
+
+            // Usando Autenticacion de CAS
+            app.UseAuthentication();
 
             app.UseSpa(spa =>
             {

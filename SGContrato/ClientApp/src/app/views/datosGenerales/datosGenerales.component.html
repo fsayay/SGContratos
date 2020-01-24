@@ -6,8 +6,9 @@
     </div>
     <div class="col-10 content">
       <div class="title borde-title">
-        Contratos / Datos Generales
+        <a [routerLink]="['/contratos']"> Contratos </a>/ Datos Generales
       </div>
+      
       <div class="content-section  overflow-auto">
         
         <div id="accordion">
@@ -26,97 +27,56 @@
                   <div class="col-12">
                     <table id="responsive-example-table" class="large-only" cellspacing="0">
                       <tbody>
-                        <tr align="left">
-                          <th width="25%"></th>
-                          <th width="20%"></th>
-                          <th width="4%"></th>
-                          <th width="4%"></th>
-                          <th width="25%"></th>
-                          <th width="31%"></th>
-                          <th width="10%"></th>
+                        <tr>
+                          <td class="label"><strong>C&oacute;digo de Contrato</strong></td>
+                          <td class="input" style="border-right: 5px #fff solid">{{ contrato.txt_codigoContrato }}</td>
+                          <td class="label"><strong>Plazo del Contrato</strong></td>
+                          <td>135</td>
                         </tr>
                         <tr>
-                          <td>Something</td>
-                          <td>3.375%</td>
-                          <td style="border-right: 5px #fff solid"></td>
-                          <td></td>
-                          <td>gfjhgfhg</td>
-                          <td>fjgfhjg</td>
-                          <td></td>
+                          <td class="label"><strong>Tipo Contrato</strong></td>
+                          <td class="input" style="border-right: 5px #fff solid">{{contrato.qn_tipoContrato}}</td>
+                          <td class="label"><strong>Fecha de Suscripcion</strong></td>
+                          <td>{{contrato.dt_fechaSuscripcion}}</td>
                         </tr>
                         <tr>
-                          <td>Something Else</td>
-                          <td>2.750%</td>
-                          <td style="border-right: 5px #fff solid"></td>
-                          <td></td>
-                          <td>nmbmbnb</td>
-                          <td>jhgjhg</td>
-                          <td></td>
+                          <td class="label"><strong>Numero de Proceso</strong></td>
+                          <td class="input" style="border-right: 5px #fff solid">{{contrato.txt_numProceso}}</td>
+                          <td class="label"><strong>Fecha de Inicio</strong></td>
+                          <td class="input">{{contrato.dt_fechaInicio}}</td>
                         </tr>
                         <tr>
-                          <td>Another Thing</td>
-                          <td>3.375%</td>
-                          <td style="border-right: 5px #fff solid"></td>
-                          <td></td>
-                          <td>kfkjfkj</td>
-                          <td>gjkgjgkj</td>
-                          <td></td>
+                          <td class="label"><strong>Tipo de Proceso</strong></td>
+                          <td class="input" style="border-right: 5px #fff solid">{{contrato.qn_tipoProceso}}</td>
+                          <td class="label"><strong>Fecha de Finalizaci&oacute;n</strong></td>
+                          <td class="input">{{contrato.dt_fechaFin}}</td>
                         </tr>
                         <tr>
-                          <td>Thing w/Less Stuff</td>
-                          <td></td>
-                          <td style="border-right: 5px #fff solid"></td>
-                          <td></td>
-                          <td>gkjgkhj</td>
-                          <td>jhgkjgjh</td>
-                          <td></td>
+                          <td class="label"><strong>Monto Adjudicado</strong></td>
+                          <td class="input" style="border-right: 5px #fff solid">{{contrato.vm_montoAdjudicado}}</td>
+                          <td class="label"><strong>Recurrencia</strong></td>
+                          <td *ngIf="(contrato.bol_recurrencia)" class="input">SI</td>
+                          <td *ngIf="!(contrato.bol_recurrencia)" class="input">NO</td>
                         </tr>
                         <tr>
-                          <td>Last Thing</td>
-                          <td></td>
-                          <td style="border-right: 5px #fff solid"></td>
-                          <td></td>
-                          <td>bmjgjgkj</td>
-                          <td>hgkjgkjh</td>
-                          <td></td>
+                          <td class="label"><strong>Proveedor</strong></td>
+                          <td class="input" style="border-right: 5px #fff solid">{{contrato.qn_proveedor}}</td>
+                          <td class="label"><strong>RUC</strong></td>
+                          <td class="input">{{contrato.qn_proveedor}}</td>
                         </tr>
                         <tr>
-                          <td>Another Thing</td>
-                          <td>3.375%</td>
-                          <td style="border-right: 5px #fff solid"></td>
-                          <td></td>
-                          <td>bjobljjgj</td>
-                          <td>fjhfghf</td>
-                          <td></td>
+                          <td class="label"><strong>Obj. Contratacion</strong></td>
+                          <td colspan="3" class="tdContent">{{contrato.txt_objetoContratacion}}</td>
                         </tr>
                         <tr>
-                          <td>Thing w/Less Stuff</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td class="label"><strong>Formas de Pago</strong></td>
+                          <td colspan="3" class="tdContent"></td>
                         </tr>
                         <tr>
-                          <td>st Thing</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td class="label"><strong>Garantias</strong></td>
+                          <td colspan="3" class="tdContent">{{contrato.garantias.id}}</td>
                         </tr>
-                        <tr>
-                          <td>er Thing</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                      </tbody>
+                      </tbody>                      
                     </table>
                   </div>  
                 </div>                                  
@@ -137,42 +97,24 @@
                   <div class="col-12">
                     <table id="responsive-example-table" class="large-only" cellspacing="0">
                       <tbody>
-                        <tr align="left">
-                          <th width="25%"></th>
-                          <th width="40%"></th>
-                          <th width="10%"></th>
-                          <th width="10%"></th>
-                          <th width="10%"></th>
-                          <th width="10%"></th>
-                          <th width="10%"></th>
+                        <tr>
+                          <td class="label"></td>
+                          <td class="input"></td>
+                          <td class="label"></td>
+                          <td class="input"></td>
                         </tr>
                         <tr>
-                          <td>Nombre Unidad</td>
-                          <td>U.A.S.</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td class="label"><strong>Nombre Unidad</strong></td>
+                          <td colspan="3" class="tdContent">{{contrato.txt_nombreDelegado}}</td>
                         </tr>
                         <tr>
-                          <td>Descripci&oacute;n</td>
-                          <td>Unidad de Adquisici&oacute;n de Servicios</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td class="label"><strong>Descripci&oacute;n</strong></td>
+                          <td colspan="3" class="tdContent">Unidad de Adquisici&oacute;n de Servicios</td>
                         </tr>
                         <tr>
-                          <td>e-mail</td>
-                          <td>uas@espol.edu.ec</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>                        
+                          <td class="label"><strong>e-mail</strong></td>
+                          <td colspan="3" class="tdContent">uas@espol.edu.ec</td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>  
@@ -194,42 +136,24 @@
                   <div class="col-12">
                     <table id="responsive-example-table" class="large-only" cellspacing="0">
                       <tbody>
-                        <tr align="left">
-                          <th width="25%"></th>
-                          <th width="40%"></th>
-                          <th width="10%"></th>
-                          <th width="10%"></th>
-                          <th width="10%"></th>
-                          <th width="10%"></th>
-                          <th width="10%"></th>
+                        <tr>
+                          <td class="label"></td>
+                          <td class="input"></td>
+                          <td class="label"></td>
+                          <td class="input"></td>
                         </tr>
                         <tr>
-                          <td>Nombre Unidad</td>
-                          <td>U.A.S.</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td class="label"><strong>Nombre Delegado</strong></td>
+                          <td colspan="3" class="tdContent">{{contrato.txt_nombreDelegado}}</td>
                         </tr>
                         <tr>
-                          <td>Descripci&oacute;n</td>
-                          <td>Unidad de Adquisici&oacute;n de Servicios</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td class="label"><strong>Nombre Administrador</strong></td>
+                          <td colspan="3" class="tdContent">{{contrato.txt_nombreAdministrador}}</td>
                         </tr>
                         <tr>
-                          <td>e-mail</td>
-                          <td>uas@espol.edu.ec</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>                        
+                          <td class="label"><strong>Nombre Tecnico Externo</strong></td>
+                          <td colspan="3" class="tdContent">{{contrato.txt_nombreTecnicoExterno}}</td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>  
@@ -251,24 +175,17 @@
                   <div class="col-12">
                     <table id="responsive-example-table" class="large-only" cellspacing="0">
                       <tbody>
-                        <tr align="left">
-                          <th width="25%"></th>
-                          <th width="12%"></th>
-                          <th width="12%"></th>
-                          <th width="20%"></th>
-                          <th width="20%"></th>
-                          <th width="18%"></th>
-                          <th width="12%"></th>
+                        <tr>
+                          <td class="label"></td>
+                          <td class="input"></td>
+                          <td class="label"></td>
+                          <td class="input"></td>
                         </tr>
                         <tr>
-                          <td>Archivo Proceso</td>
-                          <td>Contrato</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td>archivo</td>
-                          <td></td>
-                        </tr>                        
+                          <td class="label"><strong>Archivo</strong></td>
+                          <td colspan="2" class="tdContent">{{contrato.txt_nombreTecnicoExterno}}</td>
+                          <td class="tdContent">{{contrato.txt_nombreTecnicoExterno}}</td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>                    
@@ -278,6 +195,11 @@
           </div>
         </div>
 
+      </div>
+      <div>
+        <span class="table-add float-right mb-0 mr-0">
+          <button class="btn btn-primary">Aceptar</button>
+        </span>        
       </div>
     </div>
   </div>  

@@ -23,8 +23,7 @@
             "assets": ["src/assets"],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css",
-              "src/assets/css/tableDatos.css"
+              "src/styles.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -32,7 +31,6 @@
               "src/assets/js/sidebar.js",
               "src/assets/js/pagination.js",
               "src/assets/js/js.js",
-              "src/assets/js/jquery-1.7.min.js"
             ]
           },
           "configurations": {
